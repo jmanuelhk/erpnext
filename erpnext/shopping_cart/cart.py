@@ -13,6 +13,7 @@ from erpnext.accounts.utils import get_account_name
 from erpnext.utilities.product import get_qty_in_stock
 from frappe.contacts.doctype.contact.contact import get_contact_name
 
+### coment
 
 class WebsitePriceListMissingError(frappe.ValidationError):
 	pass
