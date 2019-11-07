@@ -32,13 +32,36 @@ def get_context(context):
 
 	if not frappe.has_website_permission(context.doc):
 		frappe.throw(_("Not Permitted"), frappe.PermissionError)
-	
+
 	# check for the loyalty program of the customer
-	customer_loyalty_program = frappe.db.get_value("Customer", context.doc.customer, "loyalty_program")	
+	customer_loyalty_program = frappe.db.get_value("Customer", context.doc.customer, "loyalty_program")
 	if customer_loyalty_program:
 		from erpnext.accounts.doctype.loyalty_program.loyalty_program import get_loyalty_program_details_with_points
 		loyalty_program_details = get_loyalty_program_details_with_points(context.doc.customer, customer_loyalty_program)
 		context.available_loyalty_points = int(loyalty_program_details.get("loyalty_points"))
+
+	# context["show_text"] = frappe.form_dict.name
+	exist_payment_request_for_sales_order = frappe.db.get_value(
+    'Payment Request',
+    {'reference_name': frappe.form_dict.name}
+		)
+
+	exist_payment_entry_for_payment_request = frappe.db.get_value(
+		'Payment Entry',
+		{'reference_no': exist_payment_request_for_sales_order}
+		)
+
+	result = False
+	try:
+		if exist_payment_request_for_sales_order:
+			if exist_payment_entry_for_payment_request:
+				result = True
+	except HandleableErrors:
+		result = False
+
+	# context["show_text"] = exist_payment_request_for_sales_order
+	context["show_buttom_pay"] = result
+
 
 def get_attachments(dt, dn):
         return frappe.get_all("File",
