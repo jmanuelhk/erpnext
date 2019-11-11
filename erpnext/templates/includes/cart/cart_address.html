@@ -56,81 +56,79 @@ frappe.ready(() => {
 
 	$('.btn-new-address').click(() => {
 		const d = new frappe.ui.Dialog({
-			title: __('New Address'),
+			title: __('Nueva dirección'),
 			fields: [
 				{
-					label: __('Address Title'),
+					label: __('Título dirección'),
 					fieldname: 'address_title',
 					fieldtype: 'Data',
 					reqd: 1
 				},
 				{
-					label: __('Address Type'),
+					label: __('Tipo dirección'),
 					fieldname: 'address_type',
 					fieldtype: 'Select',
 					options: [
-						'Billing',
-						'Shipping'
+						'Facturación',
+						'Envío'
 					],
 					reqd: 1
 				},
 				{
-					label: __('Address Line 1'),
+					label: __('Dirección línea 1'),
 					fieldname: 'address_line1',
 					fieldtype: 'Data',
 					reqd: 1
 				},
 				{
-					label: __('Address Line 2'),
+					label: __('Dirección línea 2'),
 					fieldname: 'address_line2',
 					fieldtype: 'Data'
 				},
 				{
-					label: __('City/Town'),
+					label: __('Ciudad/Municipio'),
 					fieldname: 'city',
 					fieldtype: 'Data',
 					reqd: 1
 				},
 				{
-					label: __('State'),
+					label: __('Estado'),
 					fieldname: 'state',
 					fieldtype: 'Data'
 				},
 				{
-					label: __('Pin Code'),
+					label: __('Código Pin'),
 					fieldname: 'pincode',
 					fieldtype: 'Data'
 				},
 				{
-					label: __('Country'),
+					label: __('País'),
 					fieldname: 'country',
 					fieldtype: 'Select',
 					options:[
 						'Argentina',
 						'Australia',
-						'Belize',
-						'Brazil',
-						'Canada',
+						'Belice',
+						'Brasil',
+						'Canadá',
 						'Chile',
 						'China',
 						'Colombia',
 						'Cuba',
-						'Dominican Republic',
+						'República Dominicana',
 						'Ecuador',
-						'France',
-						'Germany',
+						'Francia',
+						'Alemania',
 						'Guatemala',
-						'Italy',
+						'Italia',
 						'Jamaica',
-						'Japan',
-						'Mexico',
+						'Japón',
+						'México',
 						'Nicaragua',
 						'Peru',
 						'Portugal',
 						'Puerto Rico',
-						'Spain',
-						'United Kingdom',
-						'United States',
+						'Estados Unidos',
 						'Uruguay'
 					],
 					reqd: 1

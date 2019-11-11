@@ -165,9 +165,17 @@ def add_new_address(doc):
 		'doctype': 'Address'
 	})
 	address = frappe.get_doc(doc)
+	type_address=address.address_type
+	if (type_address == 'Facturación'):
+		address.address_type='Billing'
+	if (type_address == 'Envío'):
+		address.address_type='Shipping'
+	
+	list_country={"Belice":"Belize","Brasil":"Brazil","Canadá":"Canada","República Dominicana":"Dominican Republic","Francia":"France","Alemania":"Germany","Italia":"Italy","Japón":"Japan","Estados Unidos":"United States"}
+	address.country=list_country.get(address.country,address.country)
 	address.save(ignore_permissions=True)
-
 	return address
+
 
 @frappe.whitelist(allow_guest=True)
 def create_lead_for_item_inquiry(lead, subject, message):
