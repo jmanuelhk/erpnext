@@ -12,7 +12,7 @@ from frappe.utils.nestedset import get_root_of
 from erpnext.accounts.utils import get_account_name
 from erpnext.utilities.product import get_qty_in_stock
 from frappe.contacts.doctype.contact.contact import get_contact_name
-
+## esto es una linea de comentario desde  un fork del proyecto
 
 class WebsitePriceListMissingError(frappe.ValidationError):
 	pass
