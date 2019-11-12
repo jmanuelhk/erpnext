@@ -1,9 +1,10 @@
 {% extends 'frappe/templates/includes/navbar/navbar_items.html' %}
 
 {% block navbar_right_extension %}
-	<li class="shopping-cart cart-icon hidden">
+	<li class="shopping-cart cart-icon">
 		<a href="/cart" class="nav-link">
-			{{ _("Cart") }}
+			<!-- {{ _("Cart") }} -->
+			<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 			<span class="badge badge-primary" id="cart-count"></span>
 		</a>
 	 </li>
