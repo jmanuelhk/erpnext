@@ -2,6 +2,8 @@
 // License: GNU General Public License v3. See license.txt
 
 // shopping cart
+// eesto es una lineade comentario
+
 frappe.provide("erpnext.shopping_cart");
 var shopping_cart = erpnext.shopping_cart;
 
@@ -108,28 +110,31 @@ $.extend(shopping_cart, {
 			cart_count = 0;
 		}
 
-		if(cart_count) {
-			$(".shopping-cart").toggleClass('hidden', false);
-		}
+		// if(cart_count) {
+		// 	$(".shopping-cart").toggleClass('hidden', true);
+		// }
 
-		var $cart = $('.cart-icon');
+		var $cart = $('.shopping-cart');
 		var $badge = $cart.find("#cart-count");
 
 		if(parseInt(cart_count) === 0 || cart_count === undefined) {
-			$cart.css("display", "none");
+			$cart.css("display", "inline");
 			$(".cart-items").html('Cart is Empty');
 			$(".cart-tax-items").hide();
 			$(".btn-place-order").hide();
 			$(".cart-addresses").hide();
+			$(".cart-icon").show();
 		}
 		else {
 			$cart.css("display", "inline");
+			$(".cart-icon").show();
 		}
 
 		if(cart_count) {
 			$badge.html(cart_count);
-		} else {
-			$badge.remove();
+		}else{
+			cart_count = 0;
+			$badge.html(cart_count);
 		}
 	},
 
@@ -147,7 +152,7 @@ $.extend(shopping_cart, {
 					$(".cart-items").html(r.message.items);
 					$(".cart-tax-items").html(r.message.taxes);
 					if (cart_dropdown != true) {
-						$(".cart-icon").hide();
+						$(".cart-icon").show();
 					}
 				}
 			},
