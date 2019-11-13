@@ -170,6 +170,7 @@ def add_new_address(doc):
 		address.address_type='Shipping'
 
 	list_country={"Belice":"Belize","Brasil":"Brazil","Canadá":"Canada","República Dominicana":"Dominican Republic","Francia":"France","Alemania":"Germany","Italia":"Italy","Japón":"Japan","Estados Unidos":"United States"}
+	address.country=list_country.get(address.country,address.country)
 	address.save(ignore_permissions=True)
 
 	return address
