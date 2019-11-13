@@ -56,43 +56,43 @@ frappe.ready(() => {
 
 	$('.btn-new-address').click(() => {
 		const d = new frappe.ui.Dialog({
-			title: __('New Address'),
+			title: __('Nueva dirección'),
 			fields: [
 				{
-					label: __('Address Title'),
+					label: __('Título dirección'),
 					fieldname: 'address_title',
 					fieldtype: 'Data',
 					reqd: 1
 				},
 				{
-					label: __('Address Type'),
+					label: __('Tipo dirección'),
 					fieldname: 'address_type',
 					fieldtype: 'Select',
 					options: [
-						'Billing',
-						'Shipping'
+						'Facturación',
+						'Envío'
 					],
 					reqd: 1
 				},
 				{
-					label: __('Address Line 1'),
+					label: __('Dirección línea 1'),
 					fieldname: 'address_line1',
 					fieldtype: 'Data',
 					reqd: 1
 				},
 				{
-					label: __('Address Line 2'),
+					label: __('Dirección línea 2'),
 					fieldname: 'address_line2',
 					fieldtype: 'Data'
 				},
 				{
-					label: __('City/Town'),
+					label: __('Ciudad/Municipio'),
 					fieldname: 'city',
 					fieldtype: 'Data',
 					reqd: 1
 				},
 				{
-					label: __('State'),
+					label: __('Estado'),
 					fieldname: 'state',
 					fieldtype: 'Data'
 				},
@@ -102,9 +102,34 @@ frappe.ready(() => {
 					fieldtype: 'Data'
 				},
 				{
-					label: __('Country'),
+					label: __('País'),
 					fieldname: 'country',
-					fieldtype: 'Link',
+					fieldtype: 'Select',
+					options:[
+						'Alemania',
+						'Argentina',
+						'Australia',
+						'Belize',
+						'Brazil',
+						'Canadá',
+						'Chile',
+						'China',
+						'Colombia',
+						'Cuba',
+						'República Dominicana',
+						'Ecuador',
+						'Estados Unidos',
+						'Francia',
+						'Italia',
+						'Jamaica',
+						'Japón',
+						'México',
+						'Nicaragua',
+						'Peru',
+						'Portugal',
+						'Puerto Rico',
+						'Uruguay'
+					],
 					reqd: 1
 				},
 			],
