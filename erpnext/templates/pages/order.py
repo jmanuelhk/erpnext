@@ -48,8 +48,8 @@ def get_context(context):
 	result=False
 	try:
 		if exist_payment_request_for_sales_order:
-		if exist_payment_entry_for_payment_request:
-			result=True
+			if exist_payment_entry_for_payment_request:
+				result=True
 	except HandleableErrors:
 		result=False
 
