@@ -35,7 +35,8 @@
 <div class="row transaction-subheading">
 	<div class="col-6">
 		<span class="indicator {{ doc.indicator_color or ("blue" if doc.docstatus==1 else "darkgrey") }}">
-			{{ _(doc.get('indicator_title')) or _(doc.status) or _("Submitted") }}
+			<!--{{ _(doc.get('indicator_title')) or _(doc.status) or _("Submitted") }} -->
+			{{ _(doc.status) or _("Submitted") }}
 		</span>
 	</div>
 	<div class="col-6 text-muted text-right small">
@@ -135,10 +136,12 @@
 				<div class="form-column col-sm-6">
 					<div id="loyalty-points-status" style="text-align: right"></div>
 					<div class="page-header-actions-block" data-html-block="header-actions">
+						{% if show_buttom_pay == False %}
 						<p>
 							<a href="/api/method/erpnext.accounts.doctype.payment_request.payment_request.make_payment_request?dn={{ doc.name }}&dt={{ doc.doctype }}&submit_doc=1&order_type=Shopping Cart"
 								class="btn btn-primary btn-sm" id="pay-for-order">{{ _("Pay") }} {{ doc.get_formatted("grand_total") }} </a>
 						</p>
+						{% endif %}
 					</div>
 				</div>
 

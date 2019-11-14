@@ -56,6 +56,9 @@ def place_order():
 		["company", "allow_items_not_in_stock"], as_dict=1)
 	quotation.company = cart_settings.company
 
+	if not quotation.get("customer_address"):
+		throw(_("{0} is required").format(_(quotation.meta.get_label("customer_address"))))
+	
 	quotation.flags.ignore_permissions = True
 	quotation.submit()
 
@@ -160,6 +163,14 @@ def add_new_address(doc):
 		'doctype': 'Address'
 	})
 	address = frappe.get_doc(doc)
+	type_address=address.address_type
+	if(type_address == 'Facturación'):
+		address.address_type='Billing'
+	if(type_address == 'Envío'):
+		address.address_type='Shipping'
+
+	list_country={"Belice":"Belize","Brasil":"Brazil","Canadá":"Canada","República Dominicana":"Dominican Republic","Francia":"France","Alemania":"Germany","Italia":"Italy","Japón":"Japan","Estados Unidos":"United States"}
+	address.country=list_country.get(address.country,address.country)
 	address.save(ignore_permissions=True)
 
 	return address
