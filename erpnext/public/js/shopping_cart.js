@@ -182,4 +182,9 @@ $.extend(shopping_cart, {
 
 	},
 
+	show_alert : function () {
+	// var html = $(".cart-terms").html();
+	frappe.msgprint("MSG");
+}
+
 });

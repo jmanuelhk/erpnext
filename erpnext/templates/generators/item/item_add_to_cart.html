@@ -41,6 +41,12 @@
 			>
 				{{ _("Add to Cart") }}
 			</button>
+			<button
+				data-item-code="{{item_code}}"
+				class="btn btn-outline-primary btn-add-to-cart-custom"
+			>
+				test
+			</button>
 		</div>
 		{% endif %}
 	</div>
@@ -62,6 +68,13 @@
 					}
 				}
 			});
+		});
+
+		$('.page_content').on('click', '.btn-add-to-cart-custom', (e) => {
+			const $btn = $(e.currentTarget);
+			$btn.prop('disabled', true);
+			const item_code = $btn.data('item-code');
+			erpnext.shopping_cart.show_alert();
 		});
 	});
 </script>
