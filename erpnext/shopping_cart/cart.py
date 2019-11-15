@@ -1,5 +1,6 @@
 # Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
 # License: GNU General Public License v3. See license.txt
+# encoding: utf-8
 
 from __future__ import unicode_literals
 import frappe
@@ -164,9 +165,9 @@ def add_new_address(doc):
 	})
 	address = frappe.get_doc(doc)
 	type_address=address.address_type
-	if(type_address == 'Facturación'):
+	if(type_address == u'Facturación'):
 		address.address_type='Billing'
-	if(type_address == 'Envío'):
+	if(type_address == u'Envío'):
 		address.address_type='Shipping'
 
 	list_country={"Belice":"Belize","Brasil":"Brazil","Canadá":"Canada","República Dominicana":"Dominican Republic","Francia":"France","Alemania":"Germany","Italia":"Italy","Japón":"Japan","Estados Unidos":"United States"}
