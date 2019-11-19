@@ -61,7 +61,12 @@ frappe.ready(() => {
 				{
 					label: __('Título dirección'),
 					fieldname: 'address_title',
-					fieldtype: 'Data',
+					fieldtype: 'Select',
+					options: [
+						'Casa',
+						'Oficina',
+						'Otro'
+					],
 					reqd: 1
 				},
 				{
@@ -80,11 +85,11 @@ frappe.ready(() => {
 					fieldtype: 'Data',
 					reqd: 1
 				},
-				{
+				<!-- {
 					label: __('Dirección línea 2'),
 					fieldname: 'address_line2',
 					fieldtype: 'Data'
-				},
+				}, -->
 				{
 					label: __('Ciudad/Municipio'),
 					fieldname: 'city',
@@ -96,11 +101,11 @@ frappe.ready(() => {
 					fieldname: 'state',
 					fieldtype: 'Data'
 				},
-				{
+				<!-- {
 					label: __('Pin Code'),
 					fieldname: 'pincode',
 					fieldtype: 'Data'
-				},
+				}, -->
 				{
 					label: __('País'),
 					fieldname: 'country',
