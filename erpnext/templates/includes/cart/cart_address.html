@@ -59,7 +59,7 @@ frappe.ready(() => {
 			title: __('Nueva dirección'),
 			fields: [
 				{
-					label: __('Título dirección'),
+					label: __('Enviar a'),
 					fieldname: 'address_title',
 					fieldtype: 'Select',
 					options: [
@@ -80,16 +80,12 @@ frappe.ready(() => {
 					reqd: 1
 				},
 				{
-					label: __('Dirección línea 1'),
+					label: __('Dirección'),
 					fieldname: 'address_line1',
 					fieldtype: 'Data',
 					reqd: 1
 				},
-				<!-- {
-					label: __('Dirección línea 2'),
-					fieldname: 'address_line2',
-					fieldtype: 'Data'
-				}, -->
+				<!-- { 	label: __('Dirección línea 2'), fieldname: 'address_line2', fieldtype: 'Data'}, -->
 				{
 					label: __('Ciudad/Municipio'),
 					fieldname: 'city',
@@ -101,11 +97,11 @@ frappe.ready(() => {
 					fieldname: 'state',
 					fieldtype: 'Data'
 				},
-				<!-- {
-					label: __('Pin Code'),
+				{	
+					label: __('Código postal'),
 					fieldname: 'pincode',
 					fieldtype: 'Data'
-				}, -->
+				},
 				{
 					label: __('País'),
 					fieldname: 'country',
